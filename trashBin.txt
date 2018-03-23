@@ -1,0 +1,118 @@
+<!--- ..............Main body CV....................... -->
+                <div class="row">
+                    <div class="display col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+                        <div class="cv">
+                            <div id="core-qualities">
+                                <hr>Studious | Driven | Precise | Patient | Sociable
+                            </div>
+
+                            <div id="experience">
+                                <h3>Experience</h3>
+                                <hr>
+                            </div>
+                            
+                            <div id="education">
+                                <h3>Education</h3>
+                                <hr>
+                            </div>
+                            
+                            <div id="courses">
+                                <h3>Courses</h3>
+                                <hr>
+                            </div>
+        
+                            <div id="skills">
+                                <h3>Skills</h3>
+                                <hr>
+        
+                                <div class="row">
+                                    <div class="col-md-6" id="technology">
+                                        <h4>Technology</h4>
+                                    </div>
+            
+                                    <div class="col-md-6" id="languages">
+                                        <h4>Languages</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="about">
+                                <h3>About Me</h3>
+                                <hr>I enjoy exercising. I frequently go on hiking trips (preferably in the mountains), and enjoy running. I am also a novice guitar player who plays both electric and acoustic guitars. If I have any spare time left I enjoy a good book or video game.
+                            </div>
+
+                            <div id="contact">
+                                <h3>Contact</h3>
+                                <hr>
+                                <p>
+                                    mail: <a href="mailto:andringa@pmtgroep.nl">andringa@pmtgroep.nl</a>
+                                </p>
+                                <p>
+                                    phone: +31 6 18 22 000 9
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+<div></div>
+
+ 
+// fancy animation script 
+
+(function() {
+  // TODO: load CV tab
+
+  // TODO: load portfolio tab
+
+  // EVENT LISTENERS
+  const tabSwitchAnimationDuration = 750
+  document.addEventListener("DOMContentLoaded", function() {
+    $("[data-toggle='tooltip']").tooltip()
+
+    // scrollspy
+    $("body").scrollspy({target: "#spy"})
+
+    $(".cv").show(tabSwitchAnimationDuration, function() {
+      $(this).animate({opacity: 1.0})
+    })
+  })
+
+  const cvTab = document.getElementById("tab-cv")
+  const portfolioTab = document.getElementById("tab-portfolio")
+
+  const tabListener = event => {
+    const toShowClass = event.target.id === "tab-cv"
+      ? "cv"
+      : "portfolio"
+
+    const toHideClass = event.target.id === "tab-cv"
+      ? "portfolio"
+      : "cv"
+
+    $(`.${toHideClass}`)
+      .animate({opacity: 0.0})
+      .hide(tabSwitchAnimationDuration, function() {
+        $(`.${toShowClass}`).show(tabSwitchAnimationDuration, function() {
+          $(this).animate({opacity: 1.0})
+      })
+    })
+  }
+
+  cvTab.addEventListener("click", tabListener)
+  portfolioTab.addEventListener("click", tabListener)
+
+  for (let tab of document.getElementsByClassName("tab")) {
+    tab.addEventListener("click", event => {
+      const element = event.target
+  
+      if (!element.classList.contains("active")) {
+        Array
+          .from(document.getElementsByClassName("tab active"))
+          .forEach(t => t.classList.remove("active"))
+        
+  
+      element.classList.add("active")
+      }
+    })
+  }
+})()
+
