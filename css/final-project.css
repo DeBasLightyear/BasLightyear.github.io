@@ -8,14 +8,14 @@ html {
 }
 
 body {
-    background-image: url("../img/background.png");
+    background-image: url("../img/background_cropped.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
-    background-position: bottom right;
+    background-size: 125% auto;
+    background-position: center;
     font-family: mononoki, monospace;
     font-weight: 500;
-    color: hsl(0, 0%, 17%);
+    color: white;
 }
 
 .body-content {
@@ -23,12 +23,13 @@ body {
 }
 
 .info {
-    margin-top: 25px;
+    margin-top: 36px;
     text-align: center;
 }
 
 .info > h2 {
-    color: hsl(0, 0%, 35%);
+    color: hsl(0, 0%, 84%);
+    font-size: 22px;
 }
 
 .body {
@@ -73,10 +74,23 @@ body {
 }
 
 .display {
-    background: white;
     margin-bottom: 25px;
     padding: 25px;
 }
+
+#mainBlock {
+    background: rgba(0,0,0,0.3);
+}
+
+#description {
+    /* Insert style here */
+    color: black;
+}
+#card {
+    /* Insert style here */
+    color: black;
+}
+
 
 .body-content {
     display: none;
@@ -113,3 +127,6 @@ body {
     padding-top: 20px; 
     border-bottom: 1px solid lightgrey;
 }
+
+
+/* Finetune background for all screen sizes using media queries in bootstrap */
