@@ -2,20 +2,40 @@ html {
     overflow-y: scroll;
 }
 
-@font-face {
-    font-family: mononoki;
-    src: url("./../fonts/mononoki-Regular.ttf")
+* {
+    font-family: Arial, Arial, Helvetica, sans-serif;
+}
+
+#everything {
+    visibility: hidden;
 }
 
 body {
-    background-image: url("../img/background_cropped.jpg");
+    background-image: url("../img/bg_cropped.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 125% auto;
     background-position: center;
-    font-family: mononoki, monospace;
     font-weight: 500;
     color: white;
+    /* visibility: hidden; */
+}
+
+img {
+    border-radius: 50%;
+    transition: .5s ease;
+}
+
+img:hover {
+    filter: blur(3px);
+    opacity: 0.9;
+    transition: .5s ease;
+}
+.hoverText {
+    visibility: hidden;
+}
+.hoverText:hover {
+    visibility: visible;
+    transition: 0.5s ease;
 }
 
 .body-content {
@@ -28,8 +48,14 @@ body {
 }
 
 .info > h2 {
-    color: hsl(0, 0%, 84%);
+    color: rgb(229,228,234);
     font-size: 22px;
+}
+
+h1 {
+    color: rgb(255,242,211);
+    font-size: 20px;
+    padding-top: 20px;
 }
 
 .body {
@@ -37,40 +63,32 @@ body {
     position: relative;
 }
 
-.tabs {
-    padding: 0px;
+.xpAndEdu, .card, .smallCard{
+    background-color: rgba(4,7,15,0.5);
+    border-left: 2px solid rgb(235,89,100);
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 13px;
 }
 
-.tab {
-    display: inline-block;
-    background: white;
-    padding: 10px;
-    border-radius: 5px 5px 0px 0px;
-    border-bottom: 1px solid lightgray;
-    cursor: pointer;
-    margin-right: 5px;
+.card, .smallCard {
+    width: 32.33%;
+    height: 50px;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
+    padding-top: auto;
+    padding-bottom: auto;
+    float: left;
+    text-align: center;
 }
 
-.tab:hover {
-    background: lightgray;
+.smallCard {
+    width: 49%;
 }
 
-.tab.active {
-    cursor: default;
-    border-bottom: 1px solid white;
-}
-
-.tab.active:hover {
-    background: white;
-}
-
-.sidebar {
-    background: white;
-    position: fixed;
-}
-
-.sidebar > ul > li.active {
-    font-weight: 800;
+#titleOfSection {
+    clear: both;
+    margin-top: 10px;
 }
 
 .display {
@@ -79,35 +97,16 @@ body {
 }
 
 #mainBlock {
-    background: rgba(0,0,0,0.3);
+    background: rgba(4,7,15,0.35);
 }
 
-#description {
-    /* Insert style here */
-    color: black;
-}
-#card {
-    /* Insert style here */
-    color: black;
+#picture {
+    float: right;
 }
 
-
-.body-content {
-    display: none;
-    opacity: 0;
-}
-
-.progress {
-    height: 35px;
-}
-
-.progress-label {
-    display: flex;
-    margin-left: 5px;
-    align-items: center;
-    text-align: left;
-    height: 100%;
-    font-weight: bold;
+#name {
+    font-size: 25px;
+    color: rgb(255,242,211);
 }
 
 .portfolio {
@@ -128,5 +127,38 @@ body {
     border-bottom: 1px solid lightgrey;
 }
 
+/* Media queries */
 
-/* Finetune background for all screen sizes using media queries in bootstrap */
+/* Extra small devices (iPhone 4 etc) */
+    @media (max-width: 575.98px){ 
+    .card, .smallCard {
+            height: 60px;
+            width: 48%;
+            padding-top: 20px;
+        }
+    .contactCard {
+        width: 98%;
+        }
+    }
+    body{
+        background-size: 230%;
+    }
+
+/* Small devices (lanscape phones) */
+@media (max-width: 767.98px){
+    body {
+        background-size: 375%;
+    }
+}
+
+/* Medium devices (tablets) */
+@media (max-width: 991.98px){
+    
+}
+
+/* Large devices (laprops, desktops) */
+@media (min-width: 992px){
+    body {
+        background-size: 200%;
+    }
+}
