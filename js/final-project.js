@@ -94,6 +94,43 @@ function createSubSection(numberInArray, arrayName){
   newDiv.innerHTML = arrayName[numberInArray]
   return newDiv
 }
+ 
+// Functions for GETting my repos from Github
+function gitItOn(){
+  const gitInfo = []
+  const gitDiv = document.getElementById("portfolio")
+
+  function makeProjectSummary(project){
+    const array = []
+    array.push(project.name)
+    array.push(project.svn_url)
+    array.push(project.description)
+    array.push(project.language)
+    gitInfo.push(array)
+  }
+
+  fetch("https://api.github.com/users/DeBasLightyear/repos")
+    .then(response => response.json())
+    .then(repositories => {
+      for (let repo of repositories){
+        makeProjectSummary(repo)
+      }
+    })
+    .then(() => {
+      for (let repo of gitInfo){
+        const newDiv = document.createElement("div")
+        for (let element of repo){
+          newDiv.innerHTML = `<p>${element}</p>`
+        }
+        gitDiv.appendChild(newDiv)
+      }
+    })
+      
+    
+
+
+  
+}
 
 // Function for revealing content of page after lift-off
 function revealWebPage() {
@@ -168,5 +205,4 @@ function insertSectionsIntoBodyCV(){
   }
   console.log("Lift-off!")
 }
-
 insertSectionsIntoBodyCV()

@@ -4,40 +4,97 @@ html {
 
 * {
     font-family: Arial, Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    color: white;
 }
 
-#everything {
+/* #everything {
     visibility: hidden;
-}
+} */
 
+
+/* ......Background styling and overall font..... */
 body {
     background-image: url("../img/bg_cropped.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    font-weight: 500;
-    color: white;
-    /* visibility: hidden; */
 }
 
-img {
+/*...... Picture Link styling.......*/
+a {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.image {
     border-radius: 50%;
     transition: .5s ease;
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
 }
 
-img:hover {
-    filter: blur(3px);
-    opacity: 0.9;
+#picture:hover .overlay{
+    opacity: 0.6;
+}
+
+.overlay {
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    padding-top: 65px;
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+
+/* Tabs styling */
+.tabs {
+    padding: 0px;
+}
+
+.tab {
+    display: inline-block;
+    background: rgba(0,0,0,0.35);
+    padding: 5px;
+    cursor: pointer;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-left: 3px solid rgb(235,89,100);
     transition: .5s ease;
 }
-.hoverText {
-    visibility: hidden;
-}
-.hoverText:hover {
-    visibility: visible;
-    transition: 0.5s ease;
+
+.tab:hover {
+    background: rgba(255,242,211,0.5);
 }
 
+.tab.active {
+    cursor: default;
+}
+
+.tab.active:hover {
+    background: rgba(255,242,211,0.5);
+}
+
+#tab-portfolio {
+    width: 80px;
+}
+
+/*.......... Main content Styling.......... */
 .body-content {
     padding: 20px;
 }
@@ -49,26 +106,22 @@ img:hover {
 
 .info > h2 {
     color: rgb(229,228,234);
-    font-size: 22px;
+    font-size: 20px;
 }
 
 h1 {
     color: rgb(255,242,211);
     font-size: 20px;
-    padding-top: 20px;
+    padding-top: 0px;
 }
 
-.body {
-    margin-top: 25px;
-    position: relative;
-}
-
-.xpAndEdu, .card, .smallCard{
+.xpAndEdu, .card, .smallCard, #qualities{
     background-color: rgba(4,7,15,0.5);
-    border-left: 2px solid rgb(235,89,100);
+    border-left: 3px solid rgb(235,89,100);
     margin-top: 4px;
     margin-bottom: 4px;
     padding: 13px;
+    border-radius: 3px;
 }
 
 .card, .smallCard {
@@ -76,14 +129,20 @@ h1 {
     height: 50px;
     margin-right: 0.5%;
     margin-left: 0.5%;
+    margin-bottom: 12px;
+    margin-top: 0px;
     padding-top: auto;
     padding-bottom: auto;
     float: left;
     text-align: center;
+    border-radius: 3px;
 }
-
 .smallCard {
     width: 49%;
+}
+
+#qualities {
+    width: 30%;
 }
 
 #titleOfSection {
@@ -93,20 +152,34 @@ h1 {
 
 .display {
     margin-bottom: 25px;
-    padding: 25px;
+    padding: 15px;
+    padding-top: 0px;
 }
 
 #mainBlock {
     background: rgba(4,7,15,0.35);
+    position: absolute;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
 }
 
 #picture {
     float: right;
+    position: relative;
 }
 
 #name {
     font-size: 25px;
     color: rgb(255,242,211);
+    width: 100%;
+    text-align: center;
+}
+#jobTitle {
+    width: 100%;
+    text-align: center;
+}
+#qualities {
+    clear: left;
 }
 
 .portfolio {
@@ -127,22 +200,22 @@ h1 {
     border-bottom: 1px solid lightgrey;
 }
 
-/* Media queries */
+/*............. Media queries..................*/
 
 /* Extra small devices (iPhone 4 etc) */
-    @media (max-width: 575.98px){ 
-    .card, .smallCard {
-            height: 60px;
-            width: 48%;
-            padding-top: 20px;
-        }
-    .contactCard {
-        width: 98%;
-        }
+@media (max-width: 575.98px){ 
+ .card, .smallCard {
+        height: 60px;
+        width: 49%;
+        padding-top: 20px;
     }
-    body{
-        background-size: 230%;
+ .contactCard {
+    width: 98%;
     }
+ }
+ body{
+    background-size: 230%;
+ }
 
 /* Small devices (lanscape phones) */
 @media (max-width: 767.98px){

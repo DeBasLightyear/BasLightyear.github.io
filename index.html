@@ -12,7 +12,6 @@
         <!-- CSS -->
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
         <link rel="stylesheet" href="./vendor/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./vendor/css/fontawesome-all.min.css">
         <link rel="stylesheet" href="./css/final-project.css">
     </head>
     
@@ -21,45 +20,46 @@
             <div class="header">
                 <div class="row">
                     <div class="info col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-                        <div id="name"><p>Bastiaan Kleisen</p></div>
-                        <h2><strong>Software Engineer</strong></h2>
                     </div>
                 </div>
             </div>
 
             <!-- .............Tabs CV and portfolio................ -->
-            <!-- <div class="body">
+            <div class="body">
                 <div class="row">
-                    <div class="tabs col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-                        <div class="tab active" id="tab-cv">
-                            <span class="fa-stack fa-1x">
-                                <i class="fa fa-fw fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-fw fa-file-alt fa-stack-1x fa-inverse"></i>
-                            </span>
-                            CV
+                        <div class="tabs col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+                                <div class="tab active" id="tab-cv">
+                                    <span class="fa-stack fa-1x">
+                                        <i class="fa fa-fw fa-stack-1x fa-inverse"></i>CV
+                                    </span>
+                                </div>
+                                <div class="tab" id="tab-portfolio">
+                                    <span class="fa-stack fa-1x">
+                                        <i class="fa fa-fw fa-stack-1x fa-inverse"></i>
+                                        Portfolio
+                                    </span> 
+                                </div>
                         </div>
-                        <div class="tab" id="tab-portfolio">
-                            <span class="fa-stack fa-1x">
-                                <i class="fa fa-fw fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-fw fa-folder-open fa-stack-1x fa-inverse"></i>
-                            </span>
-                            Portfolio
-                        </div>
-                    </div>
-                </div> -->
+                </div>
 
                 <!--- ..............Main body CV....................... -->
                 <div class="row">
                     <div class="display col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" id="mainBlock">
                         <div id = "bodyCV">
+                            <div id="name"><p></p>Bastiaan Kleisen</p></div>
+                            <div id="jobTitle">
+                                <p>Junior Software Engineer</p>
+                            </div>
                             <div id="picture">
-                                <a href="index.html#Contact">
-                                    <img src ="/img/buzz.jpeg" alt="Picture">
-                                </a>
-                                <div class="hoverText">CONTACT</div>
+                                <img src ="/img/buzz.jpeg" alt="Picture" class = "image">
+                                <div class="overlay">
+                                    <a href="index.html#Contact">
+                                        <div class = "text">CONTACT</div>
+                                    </a>
+                                </div>
                             </div>
                             <div id="qualities">
-                                <p>Werkt hard enzo</p>
+                                <p>Curious | Driven | Team Player</p>
                             </div>
                         
                         <!-- insert CV stuff here using fancy JS -->
