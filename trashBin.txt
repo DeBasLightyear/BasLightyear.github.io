@@ -55,6 +55,7 @@
                     </div>
 <div></div>
 
+element.style.display = "hidden"
  
 // fancy animation script 
 
@@ -116,3 +117,23 @@
   }
 })()
 
+<!-- .............Tabs CV and portfolio................ -->
+            <div class="body">
+                <div class="row">
+                    <div class="tabs col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+                        <div class="tab active" id="tab-cv">
+                            <span class="fa-stack fa-1x">
+                                <i class="fa fa-fw fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-fw fa-file-alt fa-stack-1x fa-inverse"></i>
+                            </span>
+                            CV
+                        </div>
+                        <div class="tab" id="tab-portfolio">
+                            <span class="fa-stack fa-1x">
+                                <i class="fa fa-fw fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-fw fa-folder-open fa-stack-1x fa-inverse"></i>
+                            </span>
+                            Portfolio
+                        </div>
+                    </div>
+                </div>
