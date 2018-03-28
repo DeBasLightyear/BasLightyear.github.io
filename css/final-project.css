@@ -8,11 +8,6 @@ html {
     color: white;
 }
 
-/* #everything {
-    visibility: hidden;
-} */
-
-
 /* ......Background styling and overall font..... */
 body {
     background-image: url("../img/bg_cropped.jpg");
@@ -82,10 +77,6 @@ a:hover {
     background: rgba(255,242,211,0.5);
 }
 
-.tab.active {
-    cursor: default;
-}
-
 .tab.active:hover {
     background: rgba(255,242,211,0.5);
 }
@@ -115,7 +106,7 @@ h1 {
     padding-top: 0px;
 }
 
-.xpAndEdu, .card, .smallCard, #qualities{
+.xpAndEdu, .card, .smallCard, #qualities, #portfolioCard {
     background-color: rgba(4,7,15,0.5);
     border-left: 3px solid rgb(235,89,100);
     margin-top: 4px;
@@ -161,6 +152,11 @@ h1 {
     position: absolute;
     border-radius: 5px;
     border-top-left-radius: 0px;
+    transition: 0.5s ease;
+    background-image: url("../img/embrace_beeldmerk_translucent.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-blend-mode: darken;
 }
 
 #picture {
