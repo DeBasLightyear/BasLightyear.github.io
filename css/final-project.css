@@ -2,98 +2,180 @@ html {
     overflow-y: scroll;
 }
 
-@font-face {
-    font-family: mononoki;
-    src: url("./../fonts/mononoki-Regular.ttf")
+* {
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    color: white;
 }
 
+/* ......Background styling and overall font..... */
 body {
-    background-image: url("../img/background.png");
+    background-image: url("../img/bg_cropped.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
-    background-position: bottom right;
-    font-family: mononoki, monospace;
-    font-weight: 500;
-    color: hsl(0, 0%, 17%);
+    background-position: center;
 }
 
-.body-content {
-    padding: 20px;
+/*...... Picture Link styling.......*/
+a {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+a:hover {
+    color: white;
+    text-decoration: none;
 }
 
-.info {
-    margin-top: 25px;
-    text-align: center;
-}
-
-.info > h2 {
-    color: hsl(0, 0%, 35%);
-}
-
-.body {
-    margin-top: 25px;
+.image {
+    border-radius: 50%;
+    transition: .5s ease;
+    display: block;
+    width: 100%;
+    height: auto;
     position: relative;
 }
 
+#picture:hover .overlay{
+    opacity: 0.6;
+}
+
+.overlay {
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    padding-top: 65px;
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+
+/* Tabs styling */
 .tabs {
     padding: 0px;
 }
 
 .tab {
     display: inline-block;
-    background: white;
-    padding: 10px;
-    border-radius: 5px 5px 0px 0px;
-    border-bottom: 1px solid lightgray;
+    background: rgba(0,0,0,0.35);
+    padding: 5px;
     cursor: pointer;
-    margin-right: 5px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-left: 3px solid rgb(235,89,100);
+    transition: .5s ease;
 }
 
 .tab:hover {
-    background: lightgray;
-}
-
-.tab.active {
-    cursor: default;
-    border-bottom: 1px solid white;
+    background: rgba(255,242,211,0.5);
 }
 
 .tab.active:hover {
-    background: white;
+    background: rgba(255,242,211,0.5);
 }
 
-.sidebar {
-    background: white;
-    position: fixed;
+#tab-portfolio {
+    width: 80px;
 }
 
-.sidebar > ul > li.active {
-    font-weight: 800;
+/*.......... Main content Styling.......... */
+.body-content {
+    padding: 20px;
+}
+
+.info {
+    margin-top: 36px;
+    text-align: center;
+}
+
+.info > h2 {
+    color: rgb(229,228,234);
+    font-size: 20px;
+}
+
+h1 {
+    color: rgb(255,242,211);
+    font-size: 20px;
+    padding-top: 0px;
+}
+
+.xpAndEdu, .card, .smallCard, #qualities, #portfolioCard {
+    background-color: rgba(4,7,15,0.5);
+    border-left: 3px solid rgb(235,89,100);
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 13px;
+    border-radius: 3px;
+}
+
+.card, .smallCard {
+    width: 32.33%;
+    height: 50px;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
+    margin-bottom: 12px;
+    margin-top: 0px;
+    padding-top: auto;
+    padding-bottom: auto;
+    float: left;
+    text-align: center;
+    border-radius: 3px;
+}
+.smallCard {
+    width: 49%;
+}
+
+#qualities {
+    width: 30%;
+}
+
+#titleOfSection {
+    clear: both;
+    margin-top: 10px;
 }
 
 .display {
-    background: white;
     margin-bottom: 25px;
-    padding: 25px;
+    padding: 15px;
+    padding-top: 0px;
 }
 
-.body-content {
-    display: none;
-    opacity: 0;
+#mainBlock {
+    background: rgba(4,7,15,0.35);
+    position: absolute;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    transition: 0.5s ease;
+    background-image: url("../img/embrace_beeldmerk_translucent.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-blend-mode: darken;
 }
 
-.progress {
-    height: 35px;
+#picture {
+    float: right;
+    position: relative;
 }
 
-.progress-label {
-    display: flex;
-    margin-left: 5px;
-    align-items: center;
-    text-align: left;
-    height: 100%;
-    font-weight: bold;
+#name {
+    font-size: 25px;
+    color: rgb(255,242,211);
+    width: 100%;
+    text-align: center;
+}
+#jobTitle {
+    width: 100%;
+    text-align: center;
+}
+#qualities {
+    clear: left;
 }
 
 .portfolio {
@@ -112,4 +194,40 @@ body {
     width: 50%;
     padding-top: 20px; 
     border-bottom: 1px solid lightgrey;
+}
+
+/*............. Media queries..................*/
+
+/* Extra small devices (iPhone 4 etc) */
+@media (max-width: 575.98px){ 
+ .card, .smallCard {
+        height: 60px;
+        width: 49%;
+        padding-top: 20px;
+    }
+ .contactCard {
+    width: 98%;
+    }
+ }
+ body{
+    background-size: 230%;
+ }
+
+/* Small devices (lanscape phones) */
+@media (max-width: 767.98px){
+    body {
+        background-size: 375%;
+    }
+}
+
+/* Medium devices (tablets) */
+@media (max-width: 991.98px){
+    
+}
+
+/* Large devices (laprops, desktops) */
+@media (min-width: 992px){
+    body {
+        background-size: 200%;
+    }
 }
