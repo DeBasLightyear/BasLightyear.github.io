@@ -38,7 +38,7 @@ const certificates = [
   "<strong>Lindenhaeghe</strong><br>Wft basis"
 ]
 
-const madSkills = [
+const madSkillz = [
   "HTML5",
   "CSS3",
   "JavaScript",
@@ -58,13 +58,13 @@ const interests = [
 ]
 
 const profiles = [
-  "LinkedIn",
-  "GitHub"
+  "<a href=\"https://www.linkedin.com/in/bas-kleisen-610614122/\" target=\"_blank\">LinkedIn</a>",
+  "<a href=\"https://github.com/DeBasLightyear\" target=\"_blank\">GitHub</a>"
 ]
 
 const contactInfo = [
-  "baskleisen@gmail.com",
-  "+31 6 34 33 14 55"
+  "<a href=\"mailto:baskleisen@gmail.com\">baskleisen@gmail.com<\a>",
+  "<a href=\"tel:031634331455\">+31 6 34 33 14 55</a>"
 ]
 
 //--------------------------------------------------------------
@@ -211,9 +211,9 @@ function insertSectionsIntoBodyCV(){
   }
 
   //Insert mad skills
-  for (let i = 0, leng = madSkills.length; i < leng; i++){
+  for (let i = 0, leng = madSkillz.length; i < leng; i++){
     const skillsDiv = document.getElementById("Skills")
-    const skill = createSubSection(i,madSkills)
+    const skill = createSubSection(i,madSkillz)
     skill.setAttribute("class", "card")
     skillsDiv.appendChild(skill)
   }

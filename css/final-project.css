@@ -32,6 +32,10 @@ a:hover {
     color: white;
     text-decoration: none;
 }
+a:link, a:visited{
+    text-decoration: none;
+    color: white;
+}
 
 .image {
     border-radius: 50%;
@@ -239,6 +243,6 @@ h1 {
 /* Large devices (laptops, desktops) */
 @media (min-width: 992px){
     body {
-        background-size: 116%;
+        background-size: 148%;
     }
 }
