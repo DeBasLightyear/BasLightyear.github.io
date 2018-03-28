@@ -16,6 +16,12 @@ body {
     background-position: center;
 }
 
+/* Center all content in DIVs */
+.centerContentInDiv {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
 /*...... Picture Link styling.......*/
 a {
     color: white;
@@ -51,7 +57,8 @@ a:hover {
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    padding-top: 65px;
+    padding-top: 50%;
+    padding-bottom: 50%;
     text-align: center;
     color: white;
     background-color: black;
@@ -78,7 +85,7 @@ a:hover {
 }
 
 .tab.active:hover {
-    background: rgba(255,242,211,0.5);
+   background: rgba(255,242,211,0.5);
 }
 
 #tab-portfolio {
@@ -106,18 +113,18 @@ h1 {
     padding-top: 0px;
 }
 
+/* ..................Card styling..................... */
 .xpAndEdu, .card, .smallCard, #qualities, #portfolioCard {
     background-color: rgba(4,7,15,0.5);
     border-left: 3px solid rgb(235,89,100);
-    margin-top: 4px;
-    margin-bottom: 4px;
-    padding: 13px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 8px;
     border-radius: 3px;
 }
 
 .card, .smallCard {
     width: 32.33%;
-    height: 50px;
     margin-right: 0.5%;
     margin-left: 0.5%;
     margin-bottom: 12px;
@@ -201,16 +208,20 @@ h1 {
 /* Extra small devices (iPhone 4 etc) */
 @media (max-width: 575.98px){ 
  .card, .smallCard {
-        height: 60px;
+        height: auto;
         width: 49%;
-        padding-top: 20px;
     }
  .contactCard {
     width: 98%;
     }
+ #picture {
+    float: none;
+    margin: 15px;
  }
- body{
-    background-size: 230%;
+ #qualities {
+     width: 100%;
+     text-align: center;
+ }
  }
 
 /* Small devices (lanscape phones) */
@@ -225,9 +236,9 @@ h1 {
     
 }
 
-/* Large devices (laprops, desktops) */
+/* Large devices (laptops, desktops) */
 @media (min-width: 992px){
     body {
-        background-size: 200%;
+        background-size: 116%;
     }
 }

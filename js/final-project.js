@@ -27,15 +27,15 @@ const education = [
 ]
 
 const certificates = [
-  "W3C HTML",
-  "W3C CSS",
-  "W3C Javascript",
-  "Coursera HTML/CSS/JS",
-  "Coursera SQL",
-  "Agile/Scrum",
-  "Wft vermogen",
-  "Wft inkomen",
-  "Wft basis"
+  "<strong>W3C</strong><br>HTML",
+  "<strong>W3C</strong><br>CSS",
+  "<strong>W3C</strong><br>JavaScript",
+  "<strong>Coursera</strong><br>HTML/CSS/JS",
+  "<strong>Coursera</strong><br>SQL",
+  "<strong>Scrum.org</strong><br>Agile / Scrum",
+  "<strong>Lindenhaeghe</strong><br>Wft vermogen",
+  "<strong>Lindenhaeghe</strong><br>Wft inkomen",
+  "<strong>Lindenhaeghe</strong><br>Wft basis"
 ]
 
 const madSkills = [
@@ -45,7 +45,7 @@ const madSkills = [
   "Jquery",
   "Bootstrap",
   "TMap",
-  "Agile/Scrum",
+  "Agile / Scrum",
   "Git",
   "Jira"
 ]
@@ -115,7 +115,10 @@ const elements = []
 
 function createSubSection(numberInArray, arrayName){
   const newDiv = document.createElement("div")
-  newDiv.innerHTML = arrayName[numberInArray]
+  const centerTextDiv = document.createElement("div")
+  centerTextDiv.setAttribute("class", "centerContentInDiv")
+  centerTextDiv.innerHTML = arrayName[numberInArray]
+  newDiv.appendChild(centerTextDiv)
   return newDiv
 }
  
