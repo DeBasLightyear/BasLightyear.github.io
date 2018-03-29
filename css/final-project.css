@@ -41,6 +41,8 @@ a:link, a:visited{
     width: 100%;
     height: auto;
     position: relative;
+    display: inline-block;
+    margin-top: 3%;
 }
 
 #picture {
@@ -119,6 +121,13 @@ h1 {
     padding-top: 0px;
 }
 
+/* ...................Title block styling............. */
+.title {
+    float: left;
+    margin-top: 10px;
+    width: 50%;
+}
+
 /* ..................Card styling..................... */
 .xpAndEdu, .card, .smallCard, #qualities, #portfolioCard {
     background-color: rgba(4,7,15,0.5);
@@ -176,11 +185,12 @@ h1 {
     font-size: 25px;
     color: rgb(255,242,211);
     width: 100%;
-    text-align: center;
+    text-align: left;
+    margin-top: 4%;
 }
 #jobTitle {
     width: 100%;
-    text-align: center;
+    text-align: left;
 }
 
 .portfolio {
@@ -212,14 +222,19 @@ h1 {
  .contactCard {
     width: 98%;
     }
+ .title {
+    width: 100%;
+    }
+
  #picture {
     float: none;
     margin: 15px;
- }
+    }
+
  #qualities {
-     width: 49%;
+     /* width: 10%; */
      text-align: center;
- }
+    }
  }
 
 /* Small devices (lanscape phones) */
