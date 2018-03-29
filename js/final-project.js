@@ -1,5 +1,6 @@
 //...............Arrays for holding all text....................
 const cvContent = [
+  "Core Qualities",
   "Experience",
   "Education",
   "Certificates",
@@ -7,6 +8,13 @@ const cvContent = [
   "Interests",
   "Profiles",
   "Contact"
+]
+
+const coreQualities = [
+  "Curious",
+  "Driven",
+  "Team Player",
+  "Helping"
 ]
 
 const workExperience = [
@@ -76,6 +84,8 @@ let portfolioAlreadyLoaded
 
 const cvTab = document.getElementById("tab-cv")
 const portfolioTab = document.getElementById("tab-portfolio")
+portfolioTab.addEventListener("click", loadPortfolio)
+cvTab.addEventListener("click", loadCV)
 
 function loadPortfolio(){
   cvBody.innerHTML = ""
@@ -93,9 +103,6 @@ function loadCV(){
   portfolioBody.innerHTML = ""
   cvBody.innerHTML = cvBodyBackup
 }
-
-portfolioTab.addEventListener("click", loadPortfolio)
-cvTab.addEventListener("click", loadCV)
 
 /* Functions for creating divs for content of CV with correct id
 (respectively Work experience, skills etc and Embrace, PMT, Wybenga etc)*/
@@ -174,6 +181,15 @@ function insertSectionsIntoBodyCV(){
     bodyCV.appendChild(element)
   }
   
+  //Insert Core Qualities
+  for (let i = 0, leng = coreQualities.length; i < leng; i++){
+  const qualDiv = document.getElementById("Core Qualities")
+  const qualities = createSubSection(i,coreQualities)
+  qualities.setAttribute("class", "card")
+  qualities.setAttribute("id", "qualities")
+  qualDiv.appendChild(qualities)
+}
+
   //Insert experience
   for (let i = 0, leng = workExperience.length; i < leng; i++){
     const xpDiv = document.getElementById("Experience")
@@ -211,6 +227,7 @@ function insertSectionsIntoBodyCV(){
     const interestsDiv = document.getElementById("Interests")
     const interest = createSubSection(i,interests)
     interest.setAttribute("class", "card")
+    interest.setAttribute("id", "interest")
     interestsDiv.appendChild(interest)
   }
 
