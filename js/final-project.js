@@ -113,7 +113,7 @@ const elements = []
     const sectionTitleElement = document.createElement("div")
     
     sectionElement.setAttribute("id", section)
-    sectionElement.setAttribute("class", "section")
+    // sectionElement.setAttribute("class", "section")
     sectionTitleElement.setAttribute("id", `titleOfSection`)
     sectionTitleElement.innerHTML = `<h1>${section}</h1>`
     sectionElement.appendChild(sectionTitleElement)
@@ -235,7 +235,7 @@ function insertSectionsIntoBodyCV(){
   for (let i = 0, leng = profiles.length; i < leng; i++){
     const profilesDiv = document.getElementById("Profiles")
     const profile = createSubSection(i,profiles)
-    profile.setAttribute("class", "smallCard")
+    profile.setAttribute("class", "smallCard profileCard")
     profilesDiv.appendChild(profile)
   }
 

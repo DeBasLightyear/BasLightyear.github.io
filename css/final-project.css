@@ -41,7 +41,6 @@ a:link, a:visited{
     width: 100%;
     height: auto;
     position: relative;
-    display: inline-block;
     margin-top: 3%;
 }
 
@@ -66,10 +65,10 @@ a:link, a:visited{
     opacity: 0;
     transition: .5s ease;
     padding-top: 50%;
-    padding-bottom: 50%;
     text-align: center;
     color: white;
     background-color: black;
+    margin-top: 3%;
 }
 
 /* Tabs styling */
@@ -122,7 +121,7 @@ h1 {
 }
 
 /* ...................Title block styling............. */
-.title {
+.titleBox {
     float: left;
     margin-top: 10px;
     width: 50%;
@@ -149,13 +148,6 @@ h1 {
     float: left;
     text-align: center;
     border-radius: 3px;
-}
-.smallCard {
-    width: 49%;
-}
-
-#qualities {
-    width: 30%;
 }
 
 #titleOfSection {
@@ -216,23 +208,23 @@ h1 {
 /* Extra small devices (iPhone 4 etc) */
 @media (max-width: 575.98px){ 
  .card, .smallCard {
-        height: auto;
         width: 49%;
     }
  .contactCard {
     width: 98%;
     }
- .title {
+    
+ .titleBox {
     width: 100%;
     }
 
  #picture {
     float: none;
-    margin: 15px;
+    /* margin: 15px; */
     }
 
  #qualities {
-     /* width: 10%; */
+     width: 100%;
      text-align: center;
     }
  }
@@ -245,12 +237,16 @@ h1 {
 }
 
 /* Medium devices (tablets) */
-@media (max-width: 991.98px){
+
+@media (min-width: 576px){
     #qualities {
        width: 24%;
     }
     #interest {
         width: 24%;
+    }
+    .contactCard, .profileCard {
+        width: 49%;
     }
 }
 
@@ -264,5 +260,8 @@ h1 {
     }
     #interest {
         width: 24%;
+    }
+    .contactCard, .profileCard {
+        width: 49%;
     }
 }
