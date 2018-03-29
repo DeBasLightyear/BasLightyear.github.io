@@ -1,9 +1,6 @@
-// Todo: Create main CV elements in Divs
-
-//--------------------------------------------------------------
 //...............Arrays for holding all text....................
-//--------------------------------------------------------------
 const cvContent = [
+  "Core Qualities",
   "Experience",
   "Education",
   "Certificates",
@@ -11,6 +8,13 @@ const cvContent = [
   "Interests",
   "Profiles",
   "Contact"
+]
+
+const coreQualities = [
+  "Curious",
+  "Driven",
+  "Team Player",
+  "Helping"
 ]
 
 const workExperience = [
@@ -27,25 +31,25 @@ const education = [
 ]
 
 const certificates = [
-  "W3C HTML",
-  "W3C CSS",
-  "W3C Javascript",
-  "Coursera HTML/CSS/JS",
-  "Coursera SQL",
-  "Agile/Scrum",
-  "Wft vermogen",
-  "Wft inkomen",
-  "Wft basis"
+  "<strong>W3C</strong><br>HTML",
+  "<strong>W3C</strong><br>CSS",
+  "<strong>W3C</strong><br>JavaScript",
+  "<strong>Coursera</strong><br>HTML/CSS/JS",
+  "<strong>Coursera</strong><br>SQL",
+  "<strong>Scrum.org</strong><br>Agile / Scrum",
+  "<strong>Lindenhaeghe</strong><br>Wft vermogen",
+  "<strong>Lindenhaeghe</strong><br>Wft inkomen",
+  "<strong>Lindenhaeghe</strong><br>Wft basis"
 ]
 
-const madSkills = [
+const madSkillz = [
   "HTML5",
   "CSS3",
   "JavaScript",
   "Jquery",
   "Bootstrap",
   "TMap",
-  "Agile/Scrum",
+  "Agile / Scrum",
   "Git",
   "Jira"
 ]
@@ -58,13 +62,13 @@ const interests = [
 ]
 
 const profiles = [
-  "LinkedIn",
-  "GitHub"
+  "<a href=\"https://www.linkedin.com/in/bas-kleisen-610614122/\" target=\"_blank\">LinkedIn</a>",
+  "<a href=\"https://github.com/DeBasLightyear\" target=\"_blank\">GitHub</a>"
 ]
 
 const contactInfo = [
-  "baskleisen@gmail.com",
-  "+31 6 34 33 14 55"
+  "<a href=\"mailto:baskleisen@gmail.com\">baskleisen@gmail.com<\a>",
+  "<a href=\"tel:031634331455\">+31 6 34 33 14 55</a>"
 ]
 
 //--------------------------------------------------------------
@@ -80,20 +84,25 @@ let portfolioAlreadyLoaded
 
 const cvTab = document.getElementById("tab-cv")
 const portfolioTab = document.getElementById("tab-portfolio")
+portfolioTab.addEventListener("click", loadPortfolio)
+cvTab.addEventListener("click", loadCV)
 
 function loadPortfolio(){
   cvBody.innerHTML = ""
-  gitItOn()
+  if (!portfolioAlreadyLoaded){
+    portfolioAlreadyLoaded = true
+    portfolioBody.appendChild(portfolioBodyBackup)
+  }
+  else {
+    portfolioBody.innerHTML = portfolioBodyBackup
+  }
 }
 
 function loadCV(){
-  cvBody.innerHTML = ""
+  portfolioBodyBackup = portfolioBody.innerHTML
   portfolioBody.innerHTML = ""
   cvBody.innerHTML = cvBodyBackup
 }
-
-portfolioTab.addEventListener("click", loadPortfolio)
-cvTab.addEventListener("click", loadCV)
 
 /* Functions for creating divs for content of CV with correct id
 (respectively Work experience, skills etc and Embrace, PMT, Wybenga etc)*/
@@ -104,7 +113,7 @@ const elements = []
     const sectionTitleElement = document.createElement("div")
     
     sectionElement.setAttribute("id", section)
-    sectionElement.setAttribute("class", "section")
+    // sectionElement.setAttribute("class", "section")
     sectionTitleElement.setAttribute("id", `titleOfSection`)
     sectionTitleElement.innerHTML = `<h1>${section}</h1>`
     sectionElement.appendChild(sectionTitleElement)
@@ -115,14 +124,17 @@ const elements = []
 
 function createSubSection(numberInArray, arrayName){
   const newDiv = document.createElement("div")
-  newDiv.innerHTML = arrayName[numberInArray]
+  const centerTextDiv = document.createElement("div")
+  centerTextDiv.setAttribute("class", "centerContentInDiv")
+  centerTextDiv.innerHTML = arrayName[numberInArray]
+  newDiv.appendChild(centerTextDiv)
   return newDiv
 }
  
-// Functions for GETting my repos from Github
+// Functions for GETting my repos from Github and storing it
 function gitItOn(){
   const gitInfo = []
-  const gitDiv = document.getElementById("portfolio")
+  let gitDiv = ""
   function makeProjectSummary(project){
     const array = []
     array.push(project.name)
@@ -136,42 +148,28 @@ function gitItOn(){
     test.innerHTML = "<h1>GitHub Repositories</h1>"
     return test
   }
-  if (!portfolioAlreadyLoaded){
-    gitDiv.appendChild(makeSectionTitle())
-    portfolioAlreadyLoaded = true
-    fetch("https://api.github.com/users/DeBasLightyear/repos")
-      .then(response => response.json())
-      .then(repositories => {
-        for (let repo of repositories){
-          makeProjectSummary(repo)
+  gitDiv = makeSectionTitle()
+  fetch("https://api.github.com/users/DeBasLightyear/repos")
+    .then(response => response.json())
+    .then(repositories => {
+      for (let repo of repositories){
+        makeProjectSummary(repo)
+      }
+    })
+    .then(() => {
+      for (let repo of gitInfo){
+        const newDiv = document.createElement("div")
+        newDiv.setAttribute("id", "portfolioCard")
+        for (let element of repo){
+          const newP = document.createElement("p")
+          newP.innerHTML = `${element}`
+          newDiv.appendChild(newP)
         }
-      })
-      .then(() => {
-        for (let repo of gitInfo){
-          const newDiv = document.createElement("div")
-          newDiv.setAttribute("id", "portfolioCard")
-          for (let element of repo){
-            const newP = document.createElement("p")
-            newP.innerHTML = `${element}`
-            newDiv.appendChild(newP)
-          }
-          console.log(gitDiv)
-          gitDiv.appendChild(newDiv)
-          portfolioBodyBackup = portfolioBody.innerHTML
-        }
-      })
-  }
-  else {
-    portfolioBody.innerHTML = portfolioBodyBackup
-  }
+        gitDiv.appendChild(newDiv)
+      }
+      portfolioBodyBackup = gitDiv
+    })
 }
-
-// Functions for revealing content + event listeners
-
-// function revealWebPage() {
-//   const everything = document.getElementById("everything")
-//   everything.style.visibility = "visible"
-// }
 
 /* Function for inserting HTML generated by aforementioned functions into index.html*/
 function insertSectionsIntoBodyCV(){
@@ -183,6 +181,15 @@ function insertSectionsIntoBodyCV(){
     bodyCV.appendChild(element)
   }
   
+  //Insert Core Qualities
+  for (let i = 0, leng = coreQualities.length; i < leng; i++){
+  const qualDiv = document.getElementById("Core Qualities")
+  const qualities = createSubSection(i,coreQualities)
+  qualities.setAttribute("class", "card")
+  qualities.setAttribute("id", "qualities")
+  qualDiv.appendChild(qualities)
+}
+
   //Insert experience
   for (let i = 0, leng = workExperience.length; i < leng; i++){
     const xpDiv = document.getElementById("Experience")
@@ -208,9 +215,9 @@ function insertSectionsIntoBodyCV(){
   }
 
   //Insert mad skills
-  for (let i = 0, leng = madSkills.length; i < leng; i++){
+  for (let i = 0, leng = madSkillz.length; i < leng; i++){
     const skillsDiv = document.getElementById("Skills")
-    const skill = createSubSection(i,madSkills)
+    const skill = createSubSection(i,madSkillz)
     skill.setAttribute("class", "card")
     skillsDiv.appendChild(skill)
   }
@@ -220,6 +227,7 @@ function insertSectionsIntoBodyCV(){
     const interestsDiv = document.getElementById("Interests")
     const interest = createSubSection(i,interests)
     interest.setAttribute("class", "card")
+    interest.setAttribute("id", "interest")
     interestsDiv.appendChild(interest)
   }
 
@@ -227,7 +235,7 @@ function insertSectionsIntoBodyCV(){
   for (let i = 0, leng = profiles.length; i < leng; i++){
     const profilesDiv = document.getElementById("Profiles")
     const profile = createSubSection(i,profiles)
-    profile.setAttribute("class", "smallCard")
+    profile.setAttribute("class", "smallCard profileCard")
     profilesDiv.appendChild(profile)
   }
 
@@ -242,3 +250,4 @@ function insertSectionsIntoBodyCV(){
   cvBodyBackup = cvBody.innerHTML
 }
 insertSectionsIntoBodyCV()
+gitItOn()
