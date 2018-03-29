@@ -41,12 +41,14 @@ a:link, a:visited{
     width: 100%;
     height: auto;
     position: relative;
-    margin-top: 3%;
+    /* margin-top: 3%; */
 }
 
 #picture {
     float: right;
     position: relative;
+    margin-top: 8px;
+    margin-bottom: 5px;
 }
 
 #picture:hover .overlay{
@@ -68,7 +70,7 @@ a:link, a:visited{
     text-align: center;
     color: white;
     background-color: black;
-    margin-top: 3%;
+    /* margin-top: 3%; */
 }
 
 /* Tabs styling */
@@ -174,7 +176,7 @@ h1 {
 }
 
 #name {
-    font-size: 25px;
+    font-size: 2.5em;
     color: rgb(255,242,211);
     width: 100%;
     text-align: left;
@@ -227,14 +229,22 @@ h1 {
      width: 100%;
      text-align: center;
     }
+  #name {
+    font-size: 8vw;
+    text-align: center;
+  }
+  #jobTitle{
+    text-align: center;
+    font-size: 5vw;
+  }
  }
 
 /* Small devices (lanscape phones) */
-@media (max-width: 767.98px){
+/* @media (max-width: 767.98px){
     body {
         background-size: 375%;
     }
-}
+} */
 
 /* Medium devices (tablets) */
 
@@ -247,6 +257,12 @@ h1 {
     }
     .contactCard, .profileCard {
         width: 49%;
+    }
+    #name {
+        font-size: 5vw;
+    }
+    #jobTitle {
+        font-size: 3vw;
     }
 }
 
@@ -263,5 +279,11 @@ h1 {
     }
     .contactCard, .profileCard {
         width: 49%;
+    }
+    #name {
+        font-size: 3vw;
+    }
+    #jobTitle {
+        font-size: 1.5vw;
     }
 }
