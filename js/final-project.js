@@ -13,7 +13,7 @@ const cvContent = [
 const coreQualities = [
   "Curious",
   "Driven",
-  "Team Player",
+  "Team&nbsp;Player",
   "Helping"
 ]
 
@@ -49,16 +49,16 @@ const madSkillz = [
   "Jquery",
   "Bootstrap",
   "TMap",
-  "Agile / Scrum",
+  "Agile&nbsp;/&nbsp;Scrum",
   "Git",
   "Jira"
 ]
 
 const interests = [
-  "Music and guitar",
-  "Audio production",
+  "Music&nbsp;and&nbsp;guitar",
+  "Audio&nbsp;production",
   "Film",
-  "Video Games"
+  "Video&nbsp;Games"
 ]
 
 const profiles = [
