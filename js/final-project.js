@@ -80,7 +80,7 @@ const cvBody = document.getElementById("bodyCV")
 const portfolioBody = document.getElementById("portfolio")
 let cvBodyBackup
 let portfolioBodyBackup
-let portfolioAlreadyLoaded
+let portfolioAlreadyLoaded = false
 
 const cvTab = document.getElementById("tab-cv")
 const portfolioTab = document.getElementById("tab-portfolio")
@@ -94,12 +94,12 @@ function loadPortfolio(){
     portfolioBody.appendChild(portfolioBodyBackup)
   }
   else {
-    portfolioBody.innerHTML = portfolioBodyBackup
+    portfolioBody.appendChild(portfolioBodyBackup)
   }
 }
 
 function loadCV(){
-  portfolioBodyBackup = portfolioBody.innerHTML
+  // portfolioBodyBackup = portfolioBody.innerHTML
   portfolioBody.innerHTML = ""
   cvBody.innerHTML = cvBodyBackup
 }
