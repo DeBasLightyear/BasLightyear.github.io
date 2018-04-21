@@ -13,21 +13,21 @@ const cvContent = [
 const coreQualities = [
   "Curious",
   "Driven",
-  "Team Player",
+  "Team&nbsp;Player",
   "Helping"
 ]
 
 const workExperience = [
-  "<p>Embrace IT - Junior Software Engineer (March 2018 - present day)</p><p>We build IT stuff</p>",
-  "<p>PMT Groep - Junior Consultant (February 2017 - February 2018)</p><p>Maak die pensioenkeuze nou gewoon</p>",
-  "<p>CSV Ichthus Rotterdam - Treasurer (July 2015 - June 2016)</p><p>Ka ching</p>",
-  "<p>Wybenga Advocaten - Legal Intern (May 2015 - June 2015)</p><p>I've got no idea what I'm doing, but I seem to be doing OK</p>"
+  "<p><strong>Embrace IT - Junior Software Engineer (March 2018 - present day)</strong></p><p>This traineeship started in March 2018 with a month long course in web development and software testing. The most important goals of the traineeship were learning to program in JavaScript in combination with Jquery, HTML, CSS and Bootstrap. The goal of this first month of training was learning a strong basis for various programming languages using modern code design and unit testing</p>",
+  "<p><strong>PMT Groep - Junior Consultant (February 2017 - February 2018)</strong></p><p>For a year I worked as a junior consultant at the sister company of Embrace IT. During this year, I worked at the department of \"Pensioenfonds Metaal en Techniek\" (PMT) that was responsible for the payment of pensions. Some of my tasks there consisted of writing hand-made and automated letters and e-mails to our pension holders. I also worked on process descriptions and various administrative tasks.</p>",
+  "<p><strong>CSV Ichthus Rotterdam - Treasurer (July 2015 - June 2016)</strong></p><p>As the treasurer of this small organisation, I was primarily responsible for all finance related activities (book keeping, collecting automated payments etc).</p>",
+  "<p><strong>Wybenga Advocaten - Legal Intern (May 2015 - June 2015)</strong></p><p>During this period, I primarily worked on legal research for the various cases of the law firm. I also attended several court sessions.</p>"
 ]
 
 const education = [
-  "<p>Embrace IT - Web development traineeship</p><p>We build IT stuff</p>",
-  "<p>Erasmus University Rotterdam - LLM Health Law</p><p>Boy, I hope I'll actually be able to find a job</p>",
-  "<p>Erasmus University Rotterdam - LLB Dutch Law</p><p>Wow, all these potential jobs look great!</p>"
+  "<p><strong>Embrace IT - Web development traineeship</strong></p><p>March - April 2018</p>",
+  "<p><strong>Erasmus University Rotterdam - LLM Health Law</strong></p><p>September 2015 - August 2016</p>",
+  "<p><strong>Erasmus University Rotterdam - LLB Dutch Law</strong></p><p>September 2011 - August 2015</p>"
 ]
 
 const certificates = [
@@ -49,16 +49,16 @@ const madSkillz = [
   "Jquery",
   "Bootstrap",
   "TMap",
-  "Agile / Scrum",
+  "Agile&nbsp;/&nbsp;Scrum",
   "Git",
   "Jira"
 ]
 
 const interests = [
-  "Music and guitar",
-  "Audio production",
+  "Music&nbsp;and&nbsp;guitar",
+  "Audio&nbsp;production",
   "Film",
-  "Video Games"
+  "Video&nbsp;Games"
 ]
 
 const profiles = [
@@ -80,7 +80,7 @@ const cvBody = document.getElementById("bodyCV")
 const portfolioBody = document.getElementById("portfolio")
 let cvBodyBackup
 let portfolioBodyBackup
-let portfolioAlreadyLoaded
+let portfolioAlreadyLoaded = false
 
 const cvTab = document.getElementById("tab-cv")
 const portfolioTab = document.getElementById("tab-portfolio")
@@ -94,12 +94,12 @@ function loadPortfolio(){
     portfolioBody.appendChild(portfolioBodyBackup)
   }
   else {
-    portfolioBody.innerHTML = portfolioBodyBackup
+    portfolioBody.appendChild(portfolioBodyBackup)
   }
 }
 
 function loadCV(){
-  portfolioBodyBackup = portfolioBody.innerHTML
+  // portfolioBodyBackup = portfolioBody.innerHTML
   portfolioBody.innerHTML = ""
   cvBody.innerHTML = cvBodyBackup
 }
