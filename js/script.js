@@ -37,3 +37,12 @@ function getGitRepos(){
     }
 
 }
+
+//Fetch API for LinkedIn
+function getLinkedinInfo(){
+    const LinkedInURL = "https://api.linkedin.com/v2/people/(id:610614122)"        //Not yet certain how this url works
+    // const LinkedInURL = "https://api.linkedin.com/v2/{service}/{resourceIdentifier}"
+
+    fetch(LinkedInURL)
+        .then(response => console.log(response))
+}
