@@ -2,6 +2,8 @@
 TODO:
 - Some sort of canvas element that interacts with the mouse cursor;
 - Generating all html elements with content.
+
+-TODO: Github repos need to be converted to an object that can interface with existing functions using sectionNAme and sectionArray.
 */
 const allSections = [
     coreQualities = {
@@ -80,16 +82,19 @@ gitHubRepositories = []
 //Helper function for building elements
 function makeNewDivElement(section){
     const newDivElement = document.createElement("div")
+    const smallCard = "col-xs-12 col-sm-6 col-md-6 col-lg-6 card" //CHANGE THIS, NOT FINISHED!!
+    const bigCard = "col-xs-12 col-sm-6 col-md-6 col-lg-6 card"
+
     if (section.length < 15){
-        newDivElement.setAttribute("class", "col-xs-12 col-sm-6 col-md-6 col-lg-6 card")
+        newDivElement.setAttribute("class", smallCard)
     }
     else{
-        newDivElement.setAttribute("class", "col-xs-12 col-sm-6 col-md-6 col-lg-6 card") //Change values of BS classes here!
+        newDivElement.setAttribute("class", bigCard)
     }
     return newDivElement
 }
 
-//Function for adding new sections to HTML
+//Functions for adding new sections to HTML
 function addSection(sectionObject){
     const elementDiv = document.getElementById(sectionObject.sectionName)
         for (let section of sectionObject.sectionArray){
@@ -97,12 +102,11 @@ function addSection(sectionObject){
             newSection.innerHTML = section
             elementDiv.appendChild(newSection)
         }
-}
+}                 
 
 //Fetch API fot Github (recycled from last version of myCV)
 (function getGitRepos(){
     const gitURL = "https://api.github.com/users/DeBasLightyear/repos"
-    // let gitHubRepositories = []
 
     //Fetching all repos from Github
     fetch(gitURL)
@@ -110,6 +114,11 @@ function addSection(sectionObject){
         .then(repoArrayBig => {
             for (let repo of repoArrayBig){
                 makeRepoObject(repo)
+            }
+        })
+        .then(repoArraySmall => {
+            for (let repo of gitHubRepositories){
+            addSection(makeRepoHTML(repo))
             }
         })
 
@@ -132,6 +141,10 @@ function addSection(sectionObject){
             repo.url,
             repo.description,
             repo.creationDate))                    
+    }
+
+    function makeRepoHTML(repo){ //Returning an array so I can use the same function for all elements
+        return [`<h1><a href=\"${repo.url}\" target=\"_blank\">${repo.name}</a></h1>Language: ${repo.langauge}<br>Description: ${repo.description}`]
     }
 })();
 
