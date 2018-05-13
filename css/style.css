@@ -1,6 +1,24 @@
+/* Modified Bootstrap */
+.container {
+    border-radius: 0px;
+}
+.jumbotron {
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
 
-
-.cvMenu {
-    width: 600px;
-    margin-left: auto;
+/* My own custom CSS */
+* {
+    border-radius: 0 !important;
+  }
+.cvCanvas {
+    width: 100%;
+    height: 300px;
+}
+.card {
+    border: 1px solid black;
+    height: 250px;
+}
+.noRoundedCorner {
+    border-radius: 0px;
 }
