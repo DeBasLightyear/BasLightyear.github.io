@@ -22,3 +22,8 @@
 .noRoundedCorner {
     border-radius: 0px;
 }
+.centeredNav {
+    width: 54%;
+    margin-left: 23%;
+    margin-right: 23%;
+}
