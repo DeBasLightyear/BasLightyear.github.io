@@ -77,7 +77,14 @@ const allSections = [
         ]
     },
 ]
-gitHubRepositories = []
+const allRepos = [
+    gitHubRepositories = {
+        sectionName : "gitHub",
+        sectionArray: []
+    }
+]
+
+// gitHubRepositories = []
 
 //Helper function for building elements
 function makeNewDivElement(section){
@@ -111,46 +118,24 @@ function addSection(sectionObject){
     //Fetching all repos from Github
     fetch(gitURL)
         .then(response => response.json())
-        .then(repoArrayBig => {
-            for (let repo of repoArrayBig){
+        .then(repoArray => {
+            for (let repo of repoArray){
                 makeRepoObject(repo)
             }
         })
-        .then(repoArraySmall => {
-            for (let repo of gitHubRepositories){
-            addSection(makeRepoHTML(repo))
-            }
-        })
+        .then(repoArray => addSectionsInObject(allRepos))
 
-    //Function for building an object for each GitHub repo
+    //Function for adding each repo to the array in the object that holds all repos
     function makeRepoObject(repo){
-        
-        //First, extract properties from large fetched object and add those to new small object
-        function repoObject(name, language, url, description, creationDate){
-            this.name = name
-            this.langauge = language
-            this.url = url
-            this.description = description
-            this.creationDate = creationDate
-        }
-        
-        //Second, add new smaller object into the array that holds all repos from Github
-        gitHubRepositories.push(new repoObject(
-            repo.name,
-            repo.language,
-            repo.url,
-            repo.description,
-            repo.creationDate))                    
+    const newRepo = `<h1><a href=\"${repo.url}\" target=\"_blank\">${repo.name}</a></h1>Language: ${repo.langauge}<br>Description: ${repo.description}`
+    allRepos[0].sectionArray.push(newRepo)    
     }
-
-    function makeRepoHTML(repo){ //Returning an array so I can use the same function for all elements
-        return [`<h1><a href=\"${repo.url}\" target=\"_blank\">${repo.name}</a></h1>Language: ${repo.langauge}<br>Description: ${repo.description}`]
-    }
-})();
+})()
 
 //Function for building all HTML (except the GitHub repos)
-(function addAllSections(){
-    for (let section of allSections){
+function addSectionsInObject(object){
+    for (let section of object){
         addSection(section)
     }
-})();
+}
+addSectionsInObject(allSections)
