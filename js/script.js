@@ -84,8 +84,6 @@ const allRepos = [
     }
 ]
 
-// gitHubRepositories = []
-
 //Helper function for building elements
 function makeNewDivElement(section){
     const newDivElement = document.createElement("div")
