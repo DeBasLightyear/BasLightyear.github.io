@@ -28,8 +28,8 @@ const allSections = [
         sectionName : "education",
         sectionArray: [
             "<p><strong>Embrace IT - Web development traineeship</strong></p><p>March - April 2018</p>",
-            "<p><strong>Erasmus University Rotterdam - LLM Health Law</strong></p><p>September 2015 - August 2016</p>",
-            "<p><strong>Erasmus University Rotterdam - LLB Dutch Law</strong></p><p>September 2011 - August 2015</p>"
+            "<p><strong>Erasmus University Rotterdam - LLM Health Law</strong></p><p>September 2014 - August 2016</p>",
+            "<p><strong>Erasmus University Rotterdam - LLB Dutch Law</strong></p><p>September 2011 - August 2014</p>"
         ]
     },
     certificates = {
