@@ -1,9 +1,11 @@
 /*
 TODO:
 - Some sort of canvas element that interacts with the mouse cursor;
-- Generating all html elements with content.
-
--TODO: Github repos need to be converted to an object that can interface with existing functions using sectionNAme and sectionArray.
+- Pick a nice color palette;
+- Assigning elements random colors of palette;
+- Add subtle background image maybe;
+- Implements code for uneven numbered elements in array;
+- Change hyperlink in repos; it currently leads to a JSON object;
 */
 const allSections = [
     coreQualities = {
@@ -85,30 +87,29 @@ const allRepos = [
 ]
 //Function for picking random colors out of predefined set
 function pickRandomColor(){
-    const palette = ['red','purple','blue','cyan']
-
-    const randomNumber = Math.random * palette.length + 1
+    const palette = ['red','purple','blue','cyan'] //PICK BETTER COLORS
+    const randomNumber = Math.floor(Math.random() * palette.length)
+    return palette[randomNumber]
 }
 
 //Helper function for deteecting uneven numbers of elements
-function isNumberUneven(section){
+function isSectionEven(section){
     return section.length % 2 === 0
 }
 
 //Helper function for building elements
 function makeNewDivElement(section){
     const newDivElement = document.createElement("div")
-    // const smallCard = "col-xs-12 col-sm-3 col-md-3 col-lg-3 text-center smallCard"
     const smallCard = "col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center smallCard"
     const bigCard = "col-xs-12 col-sm-6 col-md-6 col-lg-6 bigCard"
+    const unevenCard = "col-xs-12 col-sm-12 col-md-12 col-lg-12 bigCard"
 
-    //When section is small or a link -> make small card
+    //When section is small or a link: make small card
     if (section.length < 50 || section.slice(0, 7) === "<a href" ){
         newDivElement.setAttribute("class", smallCard)
     }
     else{
         newDivElement.setAttribute("class", bigCard)
-        console.log(section, section.length)
     }
     return newDivElement
 }
