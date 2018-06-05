@@ -15,9 +15,15 @@
     width: 100%;
     height: 300px;
 }
-.card {
+.centerDiv {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.bigCard {
     border: 1px solid black;
-    height: 250px;
+}
+.smallCard {
+    border: 1px solid black;
 }
 .noRoundedCorner {
     border-radius: 0px;

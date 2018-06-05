@@ -55,7 +55,7 @@ const allSections = [
             "Jquery",
             "Bootstrap",
             "TMap",
-            "Agile&nbsp;/&nbsp;Scrum",
+            "Agile / Scrum",
             "Git",
             "Jira"
         ]
@@ -83,18 +83,32 @@ const allRepos = [
         sectionArray: []
     }
 ]
+//Function for picking random colors out of predefined set
+function pickRandomColor(){
+    const palette = ['red','purple','blue','cyan']
+
+    const randomNumber = Math.random * palette.length + 1
+}
+
+//Helper function for deteecting uneven numbers of elements
+function isNumberUneven(section){
+    return section.length % 2 === 0
+}
 
 //Helper function for building elements
 function makeNewDivElement(section){
     const newDivElement = document.createElement("div")
-    const smallCard = "col-xs-12 col-sm-6 col-md-6 col-lg-6 card" //CHANGE THIS, NOT FINISHED!!
-    const bigCard = "col-xs-12 col-sm-6 col-md-6 col-lg-6 card"
+    // const smallCard = "col-xs-12 col-sm-3 col-md-3 col-lg-3 text-center smallCard"
+    const smallCard = "col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center smallCard"
+    const bigCard = "col-xs-12 col-sm-6 col-md-6 col-lg-6 bigCard"
 
-    if (section.length < 15){
+    //When section is small or a link -> make small card
+    if (section.length < 50 || section.slice(0, 7) === "<a href" ){
         newDivElement.setAttribute("class", smallCard)
     }
     else{
         newDivElement.setAttribute("class", bigCard)
+        console.log(section, section.length)
     }
     return newDivElement
 }
@@ -104,7 +118,10 @@ function addSection(sectionObject){
     const elementDiv = document.getElementById(sectionObject.sectionName)
         for (let section of sectionObject.sectionArray){
             const newSection = makeNewDivElement(section)
-            newSection.innerHTML = section
+            const centerDiv = document.createElement("div")
+            centerDiv.setAttribute("class", "centerDiv")
+            centerDiv.innerHTML = section
+            newSection.appendChild(centerDiv)
             elementDiv.appendChild(newSection)
         }
 }                 
