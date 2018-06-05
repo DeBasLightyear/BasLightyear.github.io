@@ -1,0 +1,35 @@
+/* Modified Bootstrap */
+.container {
+    border-radius: 0px;
+}
+.jumbotron {
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+
+/* My own custom CSS */
+* {
+    border-radius: 0 !important;
+  }
+.cvCanvas {
+    width: 100%;
+    height: 300px;
+}
+.centerDiv {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.bigCard {
+    border: 1px solid black;
+}
+.smallCard {
+    border: 1px solid black;
+}
+.noRoundedCorner {
+    border-radius: 0px;
+}
+.centeredNav {
+    width: 54%;
+    margin-left: 23%;
+    margin-right: 23%;
+}
