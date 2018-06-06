@@ -6,6 +6,7 @@ TODO:
 - Add subtle background image maybe;
 - Implements code for uneven numbered elements in array;
 - Change hyperlink in repos; it currently leads to a JSON object;
+- Fix fixed scrolling;
 */
 const allSections = [
     coreQualities = {
@@ -92,8 +93,9 @@ function pickRandomColor(){
     return palette[randomNumber]
 }
 
-//Helper function for deteecting uneven numbers of elements
+//Helper function for detecting uneven numbers of elements
 function isSectionEven(section){
+    console.log(section, section.length % 2 === 0)
     return section.length % 2 === 0
 }
 
@@ -102,8 +104,7 @@ function makeNewDivElement(section){
     const newDivElement = document.createElement("div")
     const smallCard = "col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center smallCard"
     const bigCard = "col-xs-12 col-sm-6 col-md-6 col-lg-6 bigCard"
-    const unevenCard = "col-xs-12 col-sm-12 col-md-12 col-lg-12 bigCard"
-
+    
     //When section is small or a link: make small card
     if (section.length < 50 || section.slice(0, 7) === "<a href" ){
         newDivElement.setAttribute("class", smallCard)
@@ -117,13 +118,26 @@ function makeNewDivElement(section){
 //Functions for adding new sections to HTML
 function addSection(sectionObject){
     const elementDiv = document.getElementById(sectionObject.sectionName)
-        for (let section of sectionObject.sectionArray){
-            const newSection = makeNewDivElement(section)
-            const centerDiv = document.createElement("div")
-            centerDiv.setAttribute("class", "centerDiv")
-            centerDiv.innerHTML = section
-            newSection.appendChild(centerDiv)
-            elementDiv.appendChild(newSection)
+    function makeDiv(section){
+        const newSection = makeNewDivElement(section)
+                const centerDiv = document.createElement("div")
+                centerDiv.setAttribute("class", "centerDiv")
+                centerDiv.innerHTML = section
+                newSection.appendChild(centerDiv)
+                elementDiv.appendChild(newSection)
+    }
+        if(isSectionEven(sectionObject.sectionArray)){
+            for (let section of sectionObject.sectionArray){
+                makeDiv(section)
+            }
+        }
+        else{
+            const leng = sectionObject.sectionArray.length
+            for (let i = 0; i < leng -1; i++){
+                    console.log(sectionObject.sectionArray[i])
+                    makeDiv(sectionObject.sectionArray[i])
+                }
+            makeDiv(sectionObject.sectionArray[leng-1])
         }
 }                 
 
