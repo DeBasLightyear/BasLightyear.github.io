@@ -105,7 +105,7 @@ function makeNewDivElement(section){
     const bigCard = "col-xs-12 col-sm-12 col-md-12 col-lg-12 bigCard"
     
     //When section is small or a link: make small card
-    if (section.length < 50 || section.slice(0, 7) === "<a href" ){
+    if (section.length < 120 || section.slice(0, 7) === "<a href" ){
         newDivElement.setAttribute("class", smallCard)
     }
     else{
