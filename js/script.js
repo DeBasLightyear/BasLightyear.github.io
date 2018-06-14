@@ -182,6 +182,27 @@ function drawGraphic(){
 
         //Making a background, I suppose?
         bgCanvas = document.createElement('canvas')
-        //COntinue here!! (see line 53 in example)
+        bgContext = bgCanvas.getContext("2d")
+        bgCanvas.width = window.innerWidth
+        bgCanvas.height = window.innerHeight
+
+        canvas.addEventListener('mousemove', mouseMove, false)
+        canvas.addEventListener('mouseout', mouseOut, false)
+
+        start()
+    }
+
+    function start(){
+        bgContext.fillStyle = "#000000"
+        bgContext.font = "300px impact"
+        bgContext.fillText(keyWord, 85, 275)
+
+        clear()
+        getCoords()
+    }
+
+    function getCoords(){
+        let imageData, pixel, height, width;
+        // Ended at line 73
     }
 }
