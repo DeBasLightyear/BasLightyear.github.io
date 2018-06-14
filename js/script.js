@@ -93,11 +93,6 @@ function pickRandomColor(){
     return palette[randomNumber]
 }
 
-//Helper function for detecting uneven numbers of elements
-function isSectionEven(section){
-    return section.length % 2 === 0
-}
-
 //Helper function for building elements
 function makeNewDivElement(section){
     const newDivElement = document.createElement("div")
@@ -125,18 +120,9 @@ function addSection(sectionObject){
                 newSection.appendChild(centerDiv)
                 elementDiv.appendChild(newSection)
     }
-        if(isSectionEven(sectionObject.sectionArray)){
-            for (let section of sectionObject.sectionArray){
-                makeDiv(section)
-            }
-        }
-        else{
-            const leng = sectionObject.sectionArray.length
-            for (let i = 0; i < leng -1; i++){
-                    makeDiv(sectionObject.sectionArray[i])
-                }
-            makeDiv(sectionObject.sectionArray[leng-1])
-        }
+    for (let section of sectionObject.sectionArray){
+        makeDiv(section)
+    }
 }                 
 
 //Fetch API fot Github (recycled from last version of myCV)
@@ -167,3 +153,35 @@ function addSectionsInObject(object){
     }
 }
 addSectionsInObject(allSections)
+
+//Function for generating fancy interactive canvas graphics
+function drawGraphic(){
+//Basic variables
+    const keyWord = "Test"
+    let canvas
+    let context
+
+    let bgCanvas
+    let bgContext
+
+    const density = 10
+    let particles = []
+    // const mouse = {x: -100, y: -100} //Is this needed?
+    const mouseOnScreen = false
+
+    let counter = 0
+    const counterLimit = 40
+
+    //Getting context info (I guess?)
+    this.initialize = function(canvasID){
+        canvas = document.getElementById(canvasID)
+        context = canvas.msGetInputContext("2d")
+        
+        canvas.width = windows.innerWidth
+        canvas.height = windows.innerHeight;
+
+        //Making a background, I suppose?
+        bgCanvas = document.createElement('canvas')
+        //COntinue here!! (see line 53 in example)
+    }
+}
