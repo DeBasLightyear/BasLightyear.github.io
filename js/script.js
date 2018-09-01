@@ -93,6 +93,13 @@ function pickRandomColor(){
     return palette[randomNumber]
 }
 
+//Function for scrolling to desired section. TODO: Needs eventlisteners to menu items
+function scrollToSection(section){
+    $('html, body').animate({
+        scrollTop: $(section).offset().top
+    }, '1000')
+}
+
 //Helper function for building elements
 function makeNewDivElement(section){
     const newDivElement = document.createElement("div")
