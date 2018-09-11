@@ -10,21 +10,51 @@
 /* My own custom CSS */
 * {
     border-radius: 0 !important;
+    box-sizing: border-box;
   }
 
 html, body {
     max-width: 100%;
     overflow-x: hidden;
 }
+ul {
+    list-style-type: none;
+}
+li {
+    float: left;
+    margin: 1em;
+}
 
 .cvCanvas {
     width: 100%;
     height: 300px;
 }
-.centerDiv {
+.centerDiv { /* Vertical center */
     margin-top: 5%;
     margin-bottom: 5%;
 }
+.horizontalCenter {
+    width: 95%;
+    text-align: center;
+    margin: auto;
+}
+.navBar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 3.9em;
+    z-index: 1;
+    background-color: blanchedalmond;
+  }
+.navButton{
+    height: 100%;
+    padding: 1%;
+}
+.navButton:hover{
+    background-color: lightslategray;
+    cursor: pointer;
+}
+
 .bigCard {
     /* border: 1px solid black; */
     background-color: cadetblue;

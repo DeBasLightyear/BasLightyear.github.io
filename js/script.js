@@ -2,9 +2,7 @@
 TODO:
 - Some sort of canvas element that interacts with the mouse cursor;
 - Pick a nice color palette;
-- Assigning elements random colors of palette;
 - Add subtle background image maybe;
-- Implements code for uneven numbered elements in array;
 - Change hyperlink in repos; it currently leads to a JSON object;
 - Fix fixed scrolling;
 */
@@ -94,10 +92,20 @@ function pickRandomColor(){
 }
 
 //Function for scrolling to desired section. TODO: Needs eventlisteners to menu items
-function scrollToSection(section){
-    $('html, body').animate({
-        scrollTop: $(section).offset().top
-    }, '1000')
+function addListenersToMenu(){
+    function scrollToSection(section){
+        $('html, body').animate({
+            scrollTop: $(section).offset().top
+        }, '1000')
+    }
+
+    const menuButtons = document.getElementsByClassName("navBar")
+    console.log(menuButtons.childNodes)
+    for(node in menuButtons.childNodes){
+        console.log(node)
+    }
+    
+    return menuButtons
 }
 
 //Helper function for building elements
@@ -130,7 +138,7 @@ function addSection(sectionObject){
     for (let section of sectionObject.sectionArray){
         makeDiv(section)
     }
-}                 
+}
 
 //Fetch API fot Github (recycled from last version of myCV)
 (function getGitRepos(){
@@ -154,6 +162,7 @@ function addSection(sectionObject){
 })()
 
 //Function for building all HTML (except the GitHub repos)
+//It's actually an array of objects. Not an object with ojects.
 function addSectionsInObject(object){
     for (let section of object){
         addSection(section)
