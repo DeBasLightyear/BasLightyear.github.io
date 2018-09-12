@@ -4,11 +4,10 @@ TODO:
 - Pick a nice color palette;
 - Add subtle background image maybe;
 - Change hyperlink in repos; it currently leads to a JSON object;
-- Fix fixed scrolling;
 */
 const allSections = [
     coreQualities = {
-        sectionName : "coreQualities",
+        sectionName : "CoreQualities",
         sectionArray: [
             "core quality 1",
             "core quality 2",
@@ -17,7 +16,7 @@ const allSections = [
         ]
     },
     workExperience = {
-        sectionName : "workExperience",
+        sectionName : "WorkExperience",
         sectionArray: [
             "<p><strong>Embrace IT - Junior Software Engineer (March 2018 - present day)</strong></p><p>This traineeship started in March 2018 with a month long course in web development and software testing. The most important goals of the traineeship were learning to program in JavaScript in combination with Jquery, HTML, CSS and Bootstrap. The goal of this first month of training was learning a strong basis for various programming languages using modern code design and unit testing</p>",
             "<p><strong>PMT Groep - Junior Consultant (February 2017 - February 2018)</strong></p><p>For a year I worked as a junior consultant at the sister company of Embrace IT. During this year, I worked at the department of \"Pensioenfonds Metaal en Techniek\" (PMT) that was responsible for the payment of pensions. Some of my tasks there consisted of writing hand-made and automated letters and e-mails to our pension holders. I also worked on process descriptions and various administrative tasks.</p>",
@@ -26,7 +25,7 @@ const allSections = [
         ]
     },
     education = {
-        sectionName : "education",
+        sectionName : "EducationandCertificates",
         sectionArray: [
             "<p><strong>Embrace IT - Web development traineeship</strong></p><p>March - April 2018</p>",
             "<p><strong>Erasmus University Rotterdam - LLM Health Law</strong></p><p>September 2014 - August 2016</p>",
@@ -34,7 +33,7 @@ const allSections = [
         ]
     },
     certificates = {
-        sectionName : "certificates",
+        sectionName : "Certificates",
         sectionArray: [
             "<strong>W3C</strong><br>HTML",
             "<strong>W3C</strong><br>CSS",
@@ -48,7 +47,7 @@ const allSections = [
         ]
     },
     madSkills = {
-        sectionName : "skills",
+        sectionName : "Skills",
         sectionArray: [
             "HTML5",
             "CSS3",
@@ -62,7 +61,7 @@ const allSections = [
         ]
     },
     interests = {
-        sectionName : "interests",
+        sectionName : "Interests",
         sectionArray: [
             "Music&nbsp;and&nbsp;guitar",
             "Audio&nbsp;production",
@@ -71,7 +70,7 @@ const allSections = [
         ]
     },
     profiles = {
-        sectionName : "profiles",
+        sectionName : "Profiles",
         sectionArray: [
             "<a href=\"https://www.linkedin.com/in/bas-kleisen-610614122/\" target=\"_blank\">LinkedIn</a>",
             "<a href=\"https://github.com/DeBasLightyear\" target=\"_blank\">GitHub</a>"
@@ -84,28 +83,25 @@ const allRepos = [
         sectionArray: []
     }
 ]
-//Function for picking random colors out of predefined set
-function pickRandomColor(){
-    const palette = ['red','purple','blue','cyan'] //PICK BETTER COLORS
-    const randomNumber = Math.floor(Math.random() * palette.length)
-    return palette[randomNumber]
-}
 
 //Function for scrolling to desired section. TODO: Needs eventlisteners to menu items
 function addListenersToMenu(){
-    function scrollToSection(section){
+    function scrollToSection(){
+        let buttonDestination = `#${this.innerText.split(" ").join("")}`
+        
         $('html, body').animate({
-            scrollTop: $(section).offset().top
+            scrollTop: $(buttonDestination).offset().top
         }, '1000')
     }
 
     const menuButtons = document.getElementsByClassName("navBar")
-    console.log(menuButtons.childNodes)
-    for(node in menuButtons.childNodes){
-        console.log(node)
+    // console.log(menuButtons[0].children)
+    
+    for (child of menuButtons[0].children){
+        child.addEventListener("click", scrollToSection)
     }
     
-    return menuButtons
+    // return menuButtons
 }
 
 //Helper function for building elements
@@ -129,11 +125,11 @@ function addSection(sectionObject){
     const elementDiv = document.getElementById(sectionObject.sectionName)
     function makeDiv(section){
         const newSection = makeNewDivElement(section)
-                const centerDiv = document.createElement("div")
-                centerDiv.setAttribute("class", "centerDiv")
-                centerDiv.innerHTML = section
-                newSection.appendChild(centerDiv)
-                elementDiv.appendChild(newSection)
+        const centerDiv = document.createElement("div")
+        centerDiv.setAttribute("class", "centerDiv")
+        centerDiv.innerHTML = section
+        newSection.appendChild(centerDiv)
+        elementDiv.appendChild(newSection)
     }
     for (let section of sectionObject.sectionArray){
         makeDiv(section)
@@ -169,6 +165,7 @@ function addSectionsInObject(object){
     }
 }
 addSectionsInObject(allSections)
+addListenersToMenu()
 
 //Function for generating fancy interactive canvas graphics
 function drawGraphic(){
