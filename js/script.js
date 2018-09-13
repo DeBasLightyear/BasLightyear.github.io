@@ -38,6 +38,7 @@ const allSections = [
             "<strong>W3C</strong><br>HTML",
             "<strong>W3C</strong><br>CSS",
             "<strong>W3C</strong><br>JavaScript",
+            "<strong>W3C</strong><br>JQuery",
             "<strong>Coursera</strong><br>HTML/CSS/JS",
             "<strong>Coursera</strong><br>SQL",
             "<strong>Scrum.org</strong><br>Agile / Scrum",
@@ -57,7 +58,8 @@ const allSections = [
             "TMap",
             "Agile / Scrum",
             "Git",
-            "Jira"
+            "Jira",
+            "SQL"
         ]
     },
     interests = {
@@ -87,16 +89,16 @@ const allRepos = [
 //Function for scrolling to desired section. TODO: Needs eventlisteners to menu items
 function addListenersToMenu(){
     function scrollToSection(){
-        let buttonDestination = `#${this.innerText.split(" ").join("")}`
-        
+        const buttonDestination = `#${this.innerText.split(" ").join("")}`
+        const sectionPosition = $(buttonDestination).offset().top - $('.navBar').height()
+
+        //Top of section scrolls until flush with navbar
         $('html, body').animate({
-            scrollTop: $(buttonDestination).offset().top
+            scrollTop: sectionPosition
         }, '1000')
     }
 
     const menuButtons = document.getElementsByClassName("navBar")
-    // console.log(menuButtons[0].children)
-    
     for (child of menuButtons[0].children){
         child.addEventListener("click", scrollToSection)
     }
