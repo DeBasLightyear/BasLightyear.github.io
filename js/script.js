@@ -4,6 +4,8 @@ TODO:
 - Pick a nice color palette;
 - Add subtle background image maybe;
 - Change hyperlink in repos; it currently leads to a JSON object;
+
+- Test to see if my reinstalled windows machine can push to GitHub
 */
 const allSections = [
     coreQualities = {
